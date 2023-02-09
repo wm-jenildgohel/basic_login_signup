@@ -20,12 +20,14 @@
             android:textSize="@dimen/twenty_two_sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_signupEmail"
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/twenty_two_dp"
             android:layout_marginTop="@dimen/fifteen_dp"
             android:layout_marginRight="@dimen/twenty_two_dp"
+            app:errorEnabled="true"
             android:layout_marginBottom="@dimen/twelve_dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -37,6 +39,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_signupPassword"
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +47,7 @@
             android:layout_marginRight="@dimen/twenty_two_dp"
             android:layout_marginBottom="@dimen/twelve_dp"
             app:counterEnabled="true"
-            app:counterMaxLength="8"
+            app:errorEnabled="true"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/black">
 
@@ -58,6 +61,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_signupRePassword"
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +70,7 @@
             android:layout_marginBottom="@dimen/twelve_dp"
             app:passwordToggleEnabled="true"
             app:counterEnabled="true"
-            app:counterMaxLength="8"
+            app:errorEnabled="true"
             app:passwordToggleTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -74,7 +78,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/retype_password"
-
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 

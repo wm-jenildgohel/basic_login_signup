@@ -10,5 +10,11 @@
     <string name="enter_password">Enter Password</string>
     <string name="retype_password">Re-type Password</string>
     <string name="exisisting_user_login_now">Exsisting User ? Login Now</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_exists">User Already Exists !</string>
+    <string name="invalid_email">invalid email</string>
+    <string name="invalid_password">\"Password must be 9 characters long and also contains 1 capital and atleast 1 special character\"</string>
+    <string name="password_not_matched">password doesnot match</string>
 
 </resources>

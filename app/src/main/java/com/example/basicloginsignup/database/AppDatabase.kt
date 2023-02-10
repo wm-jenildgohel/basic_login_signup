@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(entities = [User::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
@@ -17,7 +16,7 @@ abstract class AppDatabase : RoomDatabase() {
         fun getInstance(context: Context): AppDatabase? {
             if (instance == null) {
                 Room.databaseBuilder(
-                    context.getApplicationContext(),
+                    context.applicationContext,
                     AppDatabase::class.java, "course_database"
                 ).fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
@@ -28,12 +27,12 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 
-    fun addUser(user: User) {
-        userDao().addUser(user)
+    fun authUser(user: User): Boolean? {
+        return user.email?.let { user.password?.let { it1 -> userDao()?.authUser(it, it1) } }
     }
 
-    fun authUser(user: User): Boolean? {
-        return user.email?.let { userDao().authUser(it) }
+    fun updateUser(user: User) {
+        return userDao().updateUser(user)
     }
 
 }

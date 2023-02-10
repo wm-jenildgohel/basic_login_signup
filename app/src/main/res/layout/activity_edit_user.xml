@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/twelve_dp"
-        android:backgroundTint="@android:color/darker_gray"
+        android:elevation="@dimen/fourty_dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:cardCornerRadius="@dimen/fourteen_dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,12 +29,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/edit_user"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/twenty_two_sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tl_editEmail"
-                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/twenty_two_dp"
@@ -73,9 +73,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/twelve_dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/white"
                 android:text="@string/edit"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="@dimen/fourteen_sp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

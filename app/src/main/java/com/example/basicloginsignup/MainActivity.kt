@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         setUpFragments()
         setContentView(binding.root)
 
-
     }
 
     private fun setUpFragments() {

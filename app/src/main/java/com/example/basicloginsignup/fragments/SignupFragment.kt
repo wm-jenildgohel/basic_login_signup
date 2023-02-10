@@ -84,6 +84,6 @@ class SignupFragment : Fragment() {
     }
 
     private fun authUser(user: User): Boolean? {
-        return user.email?.let { userDao?.authUser(it) }
+        return user.email?.let { user.password?.let { it1 -> userDao?.authUser(it, it1) } }
     }
 }

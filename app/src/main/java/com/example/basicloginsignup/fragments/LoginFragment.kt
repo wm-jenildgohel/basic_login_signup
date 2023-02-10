@@ -69,7 +69,7 @@ class LoginFragment : Fragment() {
             Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
             fragmentTransaction.replace(R.id.fragment_container, HomeFragment()).commit()
         } else {
-            binding.etLoginEmail.error = getString(R.string.user_exists)
+            binding.etLoginEmail.error = getString(R.string.invalid_email)
         }
     }
 

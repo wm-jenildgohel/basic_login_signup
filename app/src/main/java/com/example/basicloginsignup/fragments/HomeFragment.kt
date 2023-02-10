@@ -39,10 +39,6 @@ class HomeFragment : Fragment() {
             fragmentTransaction?.replace(R.id.fragment_container, LoginFragment())?.commit()
         }
 
-        binding.txtUsername.text = buildString {
-            append("Hey ! ")
-            append(sharedPreference?.getUser()?.email.toString())
-        }
 
         binding.btnEdit.setOnClickListener {
             val intent = Intent(activity, EditUserActivity::class.java)
@@ -52,5 +48,17 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.txtUsername.text = buildString {
+            append("Hey ! ")
+            append(
+                database?.userDao()?.getCurrentUser(
+                    sharedPreference?.getUser()?.email.toString(),
+                    sharedPreference?.getUser()?.password.toString()
+                )?.email
+            )
+        }
+    }
 
 }

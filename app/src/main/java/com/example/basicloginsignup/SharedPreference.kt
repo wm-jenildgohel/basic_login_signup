@@ -20,7 +20,7 @@ class SharedPreference(context: Context) {
 
     fun getUser(): User? {
         val email = sharedPreferences.getString(LoginEmail, null)
-        val password = sharedPreferences.getString(LoginEmail, null)
+        val password = sharedPreferences.getString(LoginPassword, null)
 
         return User(0, email, password)
 
@@ -31,6 +31,7 @@ class SharedPreference(context: Context) {
         editor.putString(LoginPassword, null)
         editor.commit()
     }
+
 
 
 }

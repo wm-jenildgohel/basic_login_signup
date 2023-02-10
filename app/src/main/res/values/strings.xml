@@ -16,5 +16,9 @@
     <string name="invalid_email">invalid email</string>
     <string name="invalid_password">\"Password must be 9 characters long and also contains 1 capital and atleast 1 special character\"</string>
     <string name="password_not_matched">password doesnot match</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Logout</string>
+    <string name="edit_user">Edit User</string>
+    <string name="edit">edit</string>
 
 </resources>

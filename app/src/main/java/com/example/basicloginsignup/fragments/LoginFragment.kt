@@ -35,17 +35,19 @@ class LoginFragment : Fragment() {
         sharedPreference = context?.let { SharedPreference(it) }
 
         binding.btnLogin.setOnClickListener {
-            val email = binding.etLoginEmail.text.toString().trim()
-            val password = binding.etLoginPassword.text.toString().trim()
-            if (utils.emailValidations(email) && utils.passwordValidations(password)) {
-                val user = User(0, email, password)
-                authUser(user)
+            val userEmail = binding.etLoginEmail.text.toString().trim()
+            val userPassword = binding.etLoginPassword.text.toString().trim()
+
+            if (!utils.emailValidations(userEmail)) {
+                clearError()
+                binding.tlLoginEmail.error = getString(R.string.invalid_email)
+            } else if (!utils.passwordValidations(userPassword)) {
+                clearError()
+                binding.tlLoginPassword.error = getString(R.string.invalid_password)
             } else {
-                Toast.makeText(
-                    context,
-                    utils.passwordValidations(password).toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
+                clearError()
+                val user = User(null, userEmail, userPassword)
+                authUser(user)
             }
         }
 
@@ -56,10 +58,16 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
+    private fun clearError() {
+        binding.tlLoginEmail.error = ""
+        binding.tlLoginPassword.error = ""
+    }
+
     private fun authUser(user: User) {
         if (database?.authUser(user) == true) {
             sharedPreference?.save(user)
-            fragmentTransaction.replace(R.id.fragment_container, HomeFragment())
+            Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
+            fragmentTransaction.replace(R.id.fragment_container, HomeFragment()).commit()
         } else {
             binding.etLoginEmail.error = getString(R.string.user_exists)
         }
